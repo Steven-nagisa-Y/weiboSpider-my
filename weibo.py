@@ -808,7 +808,6 @@ class Weibo(object):
                     let_main_know(False)
                 else:
                     let_main_know(True)
-                    print("\nTrue\n")
                     if self.original_pic_download:
                         self.download_files('img', 'original')
                     if self.original_video_download:

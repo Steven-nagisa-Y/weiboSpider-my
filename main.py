@@ -1,14 +1,11 @@
 import os, time
-import weibo
+import weibo, autoEmail
 
 def again():
     time.sleep(3)
     clr()
     main()
-
-def letMeKnow():
-    for i in range(10):
-        print('* ' * i+'\n')
+    
 
 def clr():
     if os.name == 'nt':
@@ -25,7 +22,7 @@ def main():
     isOK = files.read()
     if isOK == "OK":
         print("\nIt says %s"%isOK)
-        letMeKnow()
+        autoEmail.email('JWC post new Weibo!' ,time.ctime())
     else:
         print("\nIt says %s"%isOK)
         again()
