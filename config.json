@@ -1,7 +1,7 @@
 {
     "user_id_list": ["3810104105"],
     "filter": 1,
-    "since_date": 300,
+    "since_date": 1,
     "write_mode": ["csv"],
     "original_pic_download": 1,
 	"retweet_pic_download": 0,
