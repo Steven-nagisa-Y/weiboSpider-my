@@ -2,7 +2,7 @@ import os, time
 import weibo, autoEmail
 
 def again():
-    time.sleep(3)
+    time.sleep(600)
     clr()
     main()
     
