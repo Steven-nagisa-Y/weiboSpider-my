@@ -773,8 +773,11 @@ class Weibo(object):
                 page1 = page
                 random_pages = random.randint(1, 5)
 
-        self.write_data(wrote_count)  # 将剩余不足20页的微博写入文件
         print(u'微博爬取完成，共爬取%d条微博' % self.got_count)
+        if self.got_count == 0:
+            print('没有数据需要下载。')
+        else:
+            self.write_data(wrote_count)  # 将剩余不足20页的微博写入文件
 
     def get_user_list(self, file_name):
         """获取文件中的微博id信息"""
