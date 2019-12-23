@@ -1,5 +1,5 @@
 {
-    "user_id_list": ["3810104105", "2254597797", "6246287987"],
+    "user_id_list": ["3810104105"],
     "filter": 1,
     "since_date": 30,
     "write_mode": ["csv"],
