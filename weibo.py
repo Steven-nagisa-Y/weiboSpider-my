@@ -805,10 +805,10 @@ class Weibo(object):
 				print('*' * 100)
 				if self.got_count == 0:
 					print('没有微博需要下载保存。')
-					iKnow(False)
+					let_main_know(False)
 					exit()
 				else:
-					iKnow(True)
+					let_main_know(True)
 					if self.original_pic_download:
 						self.download_files('img', 'original')
 					if self.original_video_download:
