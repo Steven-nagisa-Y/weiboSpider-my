@@ -6,6 +6,11 @@ def again():
     clr()
     main()
     
+def delete(file):
+    if os.name == 'nt':
+        os.system('del /f /q '+file)
+    elif os.name == 'posix':
+        os.system('rm -f '+file)
 
 def clr():
     if os.name == 'nt':
@@ -19,10 +24,13 @@ def main():
         files = open("iKnow.txt", "r")
     except:
         print('error')
-    isOK = files.read()
+    lines = files.readlines()
+    i = 0
+    for line in lines:
+        foo[i] = line
     if isOK == "OK":
         print("\nIt says %s"%isOK)
-        autoEmail.email('JWC post new Weibo!' ,time.ctime())
+        autoEmail.email('JWC has just posted new Weibo!' ,time.ctime())
     else:
         print("\nIt says %s"%isOK)
         again()

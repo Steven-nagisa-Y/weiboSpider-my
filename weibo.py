@@ -417,6 +417,11 @@ class Weibo(object):
 
     def print_one_weibo(self, weibo):
         """打印一条微博"""
+        file = open("iKnow.txt", "w")
+        file.writelines(weibo['text'])
+        file.writelines(weibo['created_at'])
+        file.writelines(weibo['pics'])
+        file.close()
         print(u'微博id：%d' % weibo['id'])
         print(u'微博正文：%s' % weibo['text'])
         print(u'原始图片url：%s' % weibo['pics'])
@@ -775,7 +780,7 @@ class Weibo(object):
 
         print(u'微博爬取完成，共爬取%d条微博' % self.got_count)
         if self.got_count == 0:
-            print('没有数据需要下载。')
+            print('\n')
         else:
             self.write_data(wrote_count)  # 将剩余不足20页的微博写入文件
 
@@ -808,9 +813,9 @@ class Weibo(object):
                 print('*' * 100)
                 if self.got_count == 0:
                     print('没有微博需要下载保存。')
-                    let_main_know(False)
+                    let_main_know("", False)
                 else:
-                    let_main_know(True)
+                    let_main_know("", True)
                     if self.original_pic_download:
                         self.download_files('img', 'original')
                     if self.original_video_download:
@@ -824,10 +829,11 @@ class Weibo(object):
             print('Error: ', e)
             traceback.print_exc()
 
-def let_main_know(ok):
+def let_main_know(msg, ok):
     iKnow = open("iKnow.txt", "w")
     if ok:
-        iKnow.write("OK")
+        iKnow.writelines("OK")
+        iKnow.writelines(msg)
     else:
         iKnow.write("NO")
     iKnow.close()
