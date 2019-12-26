@@ -36,7 +36,7 @@ def main():
     print('已经存储的内容：\n'+ls3)
     if isOK == "OK\n":
         print("\nIt says %s"% isOK)
-        autoEmail.email('JWC has just posted new Weibo!' ,time.ctime()+'\nRecently posts:\n'+ls3)
+        autoEmail.email('JWC has just posted new Weibo!' ,time.ctime()+'\nRecent posts:\n'+ls3)
         time.sleep(10800)
         delete("iKnow.txt")
         again()
