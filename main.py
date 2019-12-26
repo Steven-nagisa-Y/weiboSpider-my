@@ -24,13 +24,18 @@ def main():
         files = open("iKnow.txt", "r")
     except:
         print('error')
+        exit(-1)
     lines = files.readlines()
-    i = 0
+    foo = []
     for line in lines:
-        foo[i] = line
+        foo.append(line)
+    isOK = foo[0]
+    for ii in foo:
+        print(ii)
     if isOK == "OK":
         print("\nIt says %s"%isOK)
-        autoEmail.email('JWC has just posted new Weibo!' ,time.ctime())
+        #autoEmail.email('JWC has just posted new Weibo!' ,time.ctime())
+        time.sleep(600)
     else:
         print("\nIt says %s"%isOK)
         again()

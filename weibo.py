@@ -813,9 +813,9 @@ class Weibo(object):
                 print('*' * 100)
                 if self.got_count == 0:
                     print('没有微博需要下载保存。')
-                    let_main_know("", False)
+                    let_main_know(False)
                 else:
-                    let_main_know("", True)
+                    let_main_know(True)
                     if self.original_pic_download:
                         self.download_files('img', 'original')
                     if self.original_video_download:
@@ -829,11 +829,10 @@ class Weibo(object):
             print('Error: ', e)
             traceback.print_exc()
 
-def let_main_know(msg, ok):
+def let_main_know(ok):
     iKnow = open("iKnow.txt", "w")
     if ok:
         iKnow.writelines("OK")
-        iKnow.writelines(msg)
     else:
         iKnow.write("NO")
     iKnow.close()
