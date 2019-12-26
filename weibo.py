@@ -417,10 +417,11 @@ class Weibo(object):
 
     def print_one_weibo(self, weibo):
         """打印一条微博"""
-        file = open("iKnow.txt", "w")
-        file.writelines(weibo['text'])
-        file.writelines(weibo['created_at'])
-        file.writelines(weibo['pics'])
+        file = open("iKnow.txt", "a+")
+        file.writelines('微博正文：%s\n' % weibo['text'])
+        file.writelines('发布时间：%s\n' % weibo['created_at'])
+        file.writelines('原始图片url：%s\n' % weibo['pics'])
+        file.writelines('-'*10+'\n')
         file.close()
         print(u'微博id：%d' % weibo['id'])
         print(u'微博正文：%s' % weibo['text'])
@@ -830,12 +831,14 @@ class Weibo(object):
             traceback.print_exc()
 
 def let_main_know(ok):
-    iKnow = open("iKnow.txt", "w")
-    if ok:
-        iKnow.writelines("OK")
-    else:
-        iKnow.write("NO")
-    iKnow.close()
+    with open('iKnow.txt', 'r+') as f:
+        content = f.read()        
+        f.seek(0, 0)
+        if ok:
+            f.write('OK\n----------\n'+content)
+        else:
+            f.write('NO\n----------\n'+content)
+    f.close()
 
 def main():
     try:

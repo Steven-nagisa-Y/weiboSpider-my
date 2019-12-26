@@ -30,12 +30,15 @@ def main():
     for line in lines:
         foo.append(line)
     isOK = foo[0]
-    for ii in foo:
-        print(ii)
     if isOK == "OK":
-        print("\nIt says %s"%isOK)
-        #autoEmail.email('JWC has just posted new Weibo!' ,time.ctime())
-        time.sleep(600)
+        print("\nIt says %s"% isOK)
+        #autoEmail.email('JWC has just posted new Weibo!' ,time.ctime()+'\n Recently posts:\n'+foo)
+        tempStr = [str(i) for i in foo]
+        fooStr = ''.join(tempStr)
+        print(fooStr)
+        time.sleep(60)
+        delete("iKnow,txt")
+        again()
     else:
         print("\nIt says %s"%isOK)
         again()
