@@ -29,18 +29,19 @@ def main():
     foo = []
     for line in lines:
         foo.append(line)
+    files.close()
     isOK = foo[0]
-    if isOK == "OK":
+    ls2 = [str(i) for i in foo]
+    ls3 = ''.join(ls2)
+    print('已经存储的内容：\n'+ls3)
+    if isOK == "OK\n":
         print("\nIt says %s"% isOK)
-        #autoEmail.email('JWC has just posted new Weibo!' ,time.ctime()+'\n Recently posts:\n'+foo)
-        tempStr = [str(i) for i in foo]
-        fooStr = ''.join(tempStr)
-        print(fooStr)
+        autoEmail.email('JWC has just posted new Weibo!' ,time.ctime()+'\nRecently posts:\n'+ls3)
         time.sleep(60)
-        delete("iKnow,txt")
+        delete("iKnow.txt")
         again()
     else:
-        print("\nIt says %s"%isOK)
+        print("\nIt says %s"% isOK)
         again()
 
 if __name__ == '__main__':
