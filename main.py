@@ -37,7 +37,7 @@ def main():
     if isOK == "OK\n":
         print("\nIt says %s"% isOK)
         autoEmail.email('JWC has just posted new Weibo!' ,time.ctime()+'\nRecently posts:\n'+ls3)
-        time.sleep(60)
+        time.sleep(10800)
         delete("iKnow.txt")
         again()
     else:
